@@ -23,20 +23,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBinding : ActivityMainBinding
     private var mealList : ArrayList<MealData> = arrayListOf()//meal
 
+    private val Time_array = listOf("아침","점심","저녁")
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        /*
-        mealList.add(MealData("dddd"))
-
-        val adapter = RecyclerMealAdapter(mealList)
-        mBinding.lstMeal.adapter = adapter
-        */
 
        doTask("https://www.gp.go.kr/supervisor/selectBbsNttList.do?bbsNo=509&key=2023")
+       //기숙사 식사 메뉴 url
 
     }
 
@@ -58,34 +56,39 @@ class MainActivity : AppCompatActivity() {
                 val entire_meal = document.select("tbody.text_center")
                 //일주일간의 메뉴 가져오기
 
-                val sunday = entire_meal.select("tr")[0]//일요일 메뉴 가져오기
+                for(i : Int in 0..6){
 
-                val morning = sunday.select("td")[0]//아침
-                //val lunch = sunday.select("td")[1]//점심
-                //val dinner = sunday.select("td")[2]//저녁
-
-                val meal = morning.select("div.innerbox")
-                val descSplitList = meal.html().split("</span>").toTypedArray()//<span>기준으로 나누기
-
-                var descResult = ""
-
-                descSplitList.forEach {
+                    val day = entire_meal.select("tr")[i]//일요일 메뉴 가져오기
 
 
-                    descResult += it + "\n"
+                    for(j: Int in 0..2){
+
+                        val mealTime = day.select("td")[j]
+
+                        val meal = mealTime.select("div.innerbox")
+                        var descSplitList = meal.html().split("</span>").toTypedArray()//<span>기준으로 나누기
+
+                        var descResult = ""
+
+                        descSplitList.forEach {
+
+                            var sort = it.replace("<span>","").replace("&lt;","").replace("&gt;","")
+                            //쓸데없는 html 태그 제거
+
+                            descResult += sort + "\n"
+                        }
+
+
+                        runOnUiThread {
+
+                            mealList.add(MealData(Time_array[j],descResult))
+                            val adapter = RecyclerMealAdapter(mealList)
+                            mBinding.lstMeal.adapter = adapter
+                        }
+
+
+                    }
                 }
-
-            runOnUiThread {
-
-              mealList.add(MealData(descResult))
-
-              val adapter = RecyclerMealAdapter(mealList)
-              mBinding.lstMeal.adapter = adapter
-
-            }
-
-
-
 
 
         }

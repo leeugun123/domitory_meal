@@ -1,15 +1,14 @@
 package org.techtown.domitory_meal
 
 import android.annotation.SuppressLint
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.lifecycleScope
 import io.reactivex.Single
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.jsoup.Jsoup
 import org.jsoup.select.Elements
 import org.techtown.domitory_meal.databinding.ActivityMainBinding
@@ -17,6 +16,7 @@ import org.techtown.domitory_meal.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding : ActivityMainBinding
+    private var mealList : ArrayList<MealData> = arrayListOf()//meal
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -24,17 +24,16 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-
        doTask("https://www.gp.go.kr/supervisor/selectBbsNttList.do?bbsNo=509&key=2023")
 
     }
 
-    @SuppressLint("CheckResult")
+
     fun doTask(url : String) {
 
-        var mealList : ArrayList<MealData> = arrayListOf()//meal
+        val scope = GlobalScope
 
-        Single.fromCallable{
+        scope.launch{
 
             try{
 
@@ -61,11 +60,9 @@ class MainActivity : AppCompatActivity() {
                 mealList.add(MealData(descResult))
 
                 val adapter = RecyclerMealAdapter(mealList)
-                lstMeal.adapter = adapter
+                mBinding.lstMeal.adapter = adapter
 
             }catch (e : Exception) {e.printStackTrace()}
-
-
 
         }
 

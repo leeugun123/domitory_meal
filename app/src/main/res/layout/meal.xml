@@ -15,62 +15,6 @@
         android:textSize="30sp"
         />
 
-    <TextView
-        android:id="@+id/menu2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="메뉴 2"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="30sp"
-        />
-
-    <TextView
-        android:id="@+id/menu3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴 3"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="30sp"
-        />
-
-    <TextView
-        android:id="@+id/menu4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴 4"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="30sp"
-        />
-
-    <TextView
-        android:id="@+id/menu5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴 5"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="30sp"
-        />
-
-    <TextView
-        android:id="@+id/menu6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="메뉴 6"
-        android:layout_weight="1"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="30sp"
-        />
-
-
 
 
 

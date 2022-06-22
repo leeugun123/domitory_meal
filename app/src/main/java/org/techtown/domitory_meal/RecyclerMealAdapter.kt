@@ -39,12 +39,8 @@ class RecyclerMealAdapter(private val meals : ArrayList<MealData>) : RecyclerVie
         private var view : View = v
 
         fun bind(listener: View.OnClickListener, meal : MealData){
-            view.menu1.text = meal.meal1
-            view.menu2.text = meal.meal2
-            view.menu3.text = meal.meal3
-            view.menu4.text = meal.meal4
-            view.menu5.text = meal.meal5
-            view.menu6.text = meal.meal6
+            view.menu1.text = meal.meal
+
         }
 
     }

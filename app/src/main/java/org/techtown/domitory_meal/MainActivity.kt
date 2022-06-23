@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 //SSL 체크
                 if(url.indexOf("https://") >= 0){
                     JsoupCrawlerExample.setSSL();
-                }
+                }//https:로 시작하는경우 setSSL() 실행하여 우회
 
                 val document = Jsoup.connect(url).get()
 

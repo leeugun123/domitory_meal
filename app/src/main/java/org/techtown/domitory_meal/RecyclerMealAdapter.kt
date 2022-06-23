@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.meal.view.*
-import org.techtown.domitory_meal.databinding.ActivityMainBinding.bind
+
 
 class RecyclerMealAdapter(private val meals : ArrayList<MealData>) : RecyclerView.Adapter<RecyclerMealAdapter.ViewHolder>() {
 
@@ -40,9 +40,11 @@ class RecyclerMealAdapter(private val meals : ArrayList<MealData>) : RecyclerVie
 
         fun bind(listener: View.OnClickListener, meal : MealData){
             view.meal_time.text = meal.mealTime
-            view.menu.text = meal.meal
-
+            view.breakfast.text = meal.breakfast
+            view.lunch.text = meal.lunch
+            view.dinner.text = meal.dinner
         }
+
 
     }
 

@@ -34,10 +34,17 @@ class MainActivity : AppCompatActivity() {
        doTask("https://www.gp.go.kr/supervisor/selectBbsNttList.do?bbsNo=509&key=2023")
        //기숙사 식사 메뉴 url
 
+        mBinding.update.setOnClickListener{
+
+            doTask("https://www.gp.go.kr/supervisor/selectBbsNttList.do?bbsNo=509&key=2023")
+        }
+
     }
 
 
     fun doTask(url : String) {
+
+        mealList.clear()
 
         val scope = GlobalScope
 

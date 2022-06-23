@@ -11,7 +11,7 @@
         android:text="날짜"
         android:textAlignment="center"
         android:gravity="center"
-        android:textSize="30sp"
+        android:textSize="25sp"
         />
 
     <LinearLayout
@@ -67,7 +67,7 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:gravity="center"
-            android:textSize="15sp"
+            android:textSize="17sp"
             />
 
         <TextView
@@ -79,7 +79,7 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:gravity="center"
-            android:textSize="15sp"
+            android:textSize="17sp"
             />
 
         <TextView
@@ -91,7 +91,7 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:gravity="center"
-            android:textSize="15sp"
+            android:textSize="17sp"
             />
 
 

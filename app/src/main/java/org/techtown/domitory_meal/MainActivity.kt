@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     fun doTask(url : String) {
 
-        mealList.clear()
+        mealList.clear()//기존에 있던 것들 제거
 
         val scope = GlobalScope
 

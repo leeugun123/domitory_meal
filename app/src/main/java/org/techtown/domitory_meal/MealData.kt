@@ -6,4 +6,6 @@ data class MealData(
     var breakfast : String,  //아침
     var lunch : String, //점심
     var dinner : String // 저녁
+
+
 )
